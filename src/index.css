@@ -1,0 +1,19 @@
+@import "tailwindcss"; 
+
+@theme {
+    --breakpoint-*: initial;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1170px;
+    --breakpoint-xxl: 1320px;
+    --font-family: "Open Sans", sans-serif;
+}
+*{
+    font-family: "Open Sans", sans-serif;
+}
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
