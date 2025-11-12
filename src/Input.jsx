@@ -7,9 +7,10 @@ const Input = () => {
 
     const [error,setError] = useState("")
     const [emailErr,setEmailErr] = useState("")
-    const [passError,setpassError] = useState("")
+    const [passError,setPassError] = useState("")
     const [email,setEmail] = useState("")
     const [pass,setPass] = useState("")
+   
 
 
     const [open,setOpen] = useState(false)
@@ -19,23 +20,28 @@ const Input = () => {
     // }
 
     let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let PassRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+
    
 
     const handleClick = (e) =>{
         e.preventDefault()
         if (email == "") {
             setEmailErr("Fill the required Email")
-        } else if (pass == "") {
-            setpassError("Fill the required Password")
-        } else if (!regex.test(email)){
-            setEmailErr("use @ in the email")
-        } else if (!regex.test(pass)){
-            setpassError("You have to submit atleast one uppercase,one lowercase,one special character,8 characters long")
+        } else {
+            if (!regex.test(email)){
+                setEmailErr("Email is Invalid")
+            }else {
+                setEmailErr(null)
+            }
+        }if (pass == ""){
+            setPassError("Enter your Pass")
+        }else if (!PassRegex.test(pass)){
+            setPassError("use upper & lower case,special words & minimum 8 characters")
+        }else {
+            setPassError(null)
         }
-        else {
-            setEmailErr("Good")
-            setpassError("Good")
-        }
+        
     }
 
     return (
@@ -49,22 +55,23 @@ const Input = () => {
                         type="email" id="email"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" onChange={(e)=> setEmail(e.target.value)}/>
                         <p className='text-red-600 text-center h-2 font-bold'> {emailErr} </p>
+                       
                         </div>
                 <div className="mb-5 relative">
                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
                     <input
-                        type="password" 
+                        type={open?"text": "password" }
                         id="password"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                         onChange={(e) => setPass(e.target.value)}
                         />
                         {  
-                        close ?
-                            <FaEyeSlash className='absolute top-10.5 right-2' onClick={()=> setOpen(true)}/>
+                        open ?
+                            <FaEye className='absolute top-10.5 right-2'onClick={()=> setOpen(!open)}/> 
                             :
-                        <FaEye className='absolute top-10.5 right-2'onClick={()=> setOpen(false)}/> 
+                        <FaEyeSlash className='absolute top-10.5 right-2' onClick={()=> setOpen(!open)}/>
                         }
-                        <p className='text-red-600 text-center h-2 font-bold'> {passError} </p>
+                        <p className='text-red-600 text-center h-6 font-bold'> {passError} </p>
                 </div>
                 <div className="flex items-start mb-5">
                     <div className="flex items-center h-5">
