@@ -24,7 +24,7 @@ const NavBar = () => {
                                 <li>Notices</li>
                                 <li>About</li>
                             </ul>
-                            <button onClick={()=>Input} className='text-amber-100 bg-amber-500 px-[29px] py-[11px] rounded-md cursor-pointer ' >Click</button>
+                            <button  className='text-amber-100 bg-amber-500 px-[29px] py-[11px] rounded-md cursor-pointer ' >Click</button>
                         </div>
                         <FiAlignJustify  onClick={handleClick} className='text-5xl lg:hidden cursor-pointer'/>
                     </div>
