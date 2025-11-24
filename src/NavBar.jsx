@@ -5,7 +5,7 @@ import { FiAlignJustify } from "react-icons/fi";
 import { NavLink } from "react-router";
 
 const NavBar = () => {
-    const [cng, setCng] = useState(false)
+    const [cng, setCng] = useState(true)
 
     const handleClick = () => {
         setCng(!cng)
@@ -15,7 +15,11 @@ const NavBar = () => {
             <div >
                 <div className='container '>
                     <div className=' flex justify-between p-5 items-center'>
-                        <img src={logo} alt="" />
+                        <img src={logo}
+                        // {<NavLink to="/" end>
+                        //         {logo}
+                        //     </NavLink>}
+                             alt="" />
                         <div className={` ${cng ? "hidden" : "block"} absolute top-20 left-0 lg:static lg:flex justify-between  gap-[30px] items-center bg-[#00413db7] w-full lg:bg-transparent lg:w-auto text-center `}>
                             <ul className='lg:flex justify-center gap-[55px] text-white lg:text-[#00413D] '>
                                 <li>

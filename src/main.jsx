@@ -10,6 +10,7 @@ import About from './components/pages/About.jsx';
 import RootLayOut from './RootLayOut.jsx';
 import Input from './Input.jsx';
 import ContactMe from './components/pages/ContactMe.jsx';
+import Banner from './components/Banner.jsx';
 
 
 
@@ -42,6 +43,8 @@ const router = createBrowserRouter([
       { path: "Notices", Component: Notices },
       { path: "About", Component: About },
       { path: "Login", Component: Input },
+      // { path: "/", Component: App },
+      // { path: "contact", Component: Contact },
     ]
   }
 ]);
